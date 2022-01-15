@@ -1,25 +1,60 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './header';
+import Footer from './footer';
+import CarComponent from './carComponent';
 
-function App() {
+const carData = {
+  id: '101',
+  color: 'red1',
+  name: 'BMW1',
+  speed: '100km/hrs',
+  size:'3meter'
+}
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+     
+      {/* passing props */}
+      <CarDetails details={carData} />
+      <CarComponent details={carData}/>
+      <Footer />
+    </>
   );
 }
 
+
+const CarDetails = (props) => {
+  return (
+    <div>
+      <h1> Car name :{props.details.color} </h1>
+      <h2> Car color : {props.details.name} </h2>
+    </div>
+  )
+}
+
+
 export default App;
+
+
+
+// const carData = [
+//   {
+//     id: '101',
+//     color: 'red',
+//     name: 'BMW'
+//   },
+//   {
+//     id: '102',
+//     color: 'yellow',
+//     name: 'BM'
+//   },
+//   {
+//     id: '103',
+//     color: 'black',
+//     name: 'MW'
+//   },
+// ]
